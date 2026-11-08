@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="390" viewBox="0 0 960 390" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif">
+<rect width="960" height="390" fill="#ffffff"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2937"/></marker><marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker></defs>
+<text x="480.0" y="30" font-size="15" fill="#1f2937" text-anchor="middle" font-weight="bold">본문 박스 하나의 y좌표 예시: 그럴듯한 정답이 두 개(왼쪽 단 0.2 / 오른쪽 단 0.6)일 때</text>
+<text x="250.0" y="58" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">예측을 그대로 사용 (또는 1단계 생성)</text>
+<rect x="50" y="70" width="400" height="240" fill="#fafafa" stroke="#d1d5db"/>
+<line x1="50" y1="262.0" x2="450" y2="262.0" stroke="#16a34a" stroke-dasharray="6 4"/>
+<text x="444" y="256.0" font-size="11" fill="#16a34a" text-anchor="end" font-weight="normal">정답 A 0.2</text>
+<line x1="50" y1="166.0" x2="450" y2="166.0" stroke="#16a34a" stroke-dasharray="6 4"/>
+<text x="444" y="160.0" font-size="11" fill="#16a34a" text-anchor="end" font-weight="normal">정답 B 0.6</text>
+<line x1="50" y1="214.0" x2="450" y2="214.0" stroke="#dc2626" stroke-dasharray="2 4"/>
+<text x="56" y="208.0" font-size="11" fill="#dc2626" text-anchor="start" font-weight="normal">두 정답의 평균 0.4</text>
+<polyline points="70.0,94.0 106.0,214.0 142.0,214.0 178.0,214.0 214.0,214.0 250.0,214.0 286.0,214.0 322.0,214.0 358.0,214.0 394.0,214.0 430.0,214.0" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+<circle cx="70.0" cy="94.0" r="3.5" fill="#2563eb"/>
+<circle cx="106.0" cy="214.0" r="3.5" fill="#2563eb"/>
+<circle cx="142.0" cy="214.0" r="3.5" fill="#2563eb"/>
+<circle cx="178.0" cy="214.0" r="3.5" fill="#2563eb"/>
+<circle cx="214.0" cy="214.0" r="3.5" fill="#2563eb"/>
+<circle cx="250.0" cy="214.0" r="3.5" fill="#2563eb"/>
+<circle cx="286.0" cy="214.0" r="3.5" fill="#2563eb"/>
+<circle cx="322.0" cy="214.0" r="3.5" fill="#2563eb"/>
+<circle cx="358.0" cy="214.0" r="3.5" fill="#2563eb"/>
+<circle cx="394.0" cy="214.0" r="3.5" fill="#2563eb"/>
+<circle cx="430.0" cy="214.0" r="3.5" fill="#2563eb"/>
+<circle cx="70.0" cy="214.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="106.0" cy="214.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="142.0" cy="214.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="178.0" cy="214.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="214.0" cy="214.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="250.0" cy="214.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="286.0" cy="214.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="322.0" cy="214.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="358.0" cy="214.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="394.0" cy="214.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<text x="70" y="328" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal">t = T</text>
+<text x="430" y="328" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">t = 0</text>
+<text x="250.0" y="350" font-size="12.5" fill="#1f2937" text-anchor="middle" font-weight="normal">첫 예측(평균)에 바로 확정 → 어느 정답도 아닌 위치</text>
+<text x="710.0" y="58" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">DDIM: 예측 쪽으로 조금씩 이동</text>
+<rect x="510" y="70" width="400" height="240" fill="#fafafa" stroke="#d1d5db"/>
+<line x1="510" y1="262.0" x2="910" y2="262.0" stroke="#16a34a" stroke-dasharray="6 4"/>
+<text x="904" y="256.0" font-size="11" fill="#16a34a" text-anchor="end" font-weight="normal">정답 A 0.2</text>
+<line x1="510" y1="166.0" x2="910" y2="166.0" stroke="#16a34a" stroke-dasharray="6 4"/>
+<text x="904" y="160.0" font-size="11" fill="#16a34a" text-anchor="end" font-weight="normal">정답 B 0.6</text>
+<line x1="510" y1="214.0" x2="910" y2="214.0" stroke="#dc2626" stroke-dasharray="2 4"/>
+<text x="516" y="208.0" font-size="11" fill="#dc2626" text-anchor="start" font-weight="normal">두 정답의 평균 0.4</text>
+<polyline points="530.0,94.0 566.0,103.2 602.0,113.3 638.0,124.2 674.0,135.0 710.0,144.5 746.0,153.1 782.0,159.5 818.0,163.4 854.0,165.6 890.0,166.0" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+<circle cx="530.0" cy="94.0" r="3.5" fill="#2563eb"/>
+<circle cx="566.0" cy="103.2" r="3.5" fill="#2563eb"/>
+<circle cx="602.0" cy="113.3" r="3.5" fill="#2563eb"/>
+<circle cx="638.0" cy="124.2" r="3.5" fill="#2563eb"/>
+<circle cx="674.0" cy="135.0" r="3.5" fill="#2563eb"/>
+<circle cx="710.0" cy="144.5" r="3.5" fill="#2563eb"/>
+<circle cx="746.0" cy="153.1" r="3.5" fill="#2563eb"/>
+<circle cx="782.0" cy="159.5" r="3.5" fill="#2563eb"/>
+<circle cx="818.0" cy="163.4" r="3.5" fill="#2563eb"/>
+<circle cx="854.0" cy="165.6" r="3.5" fill="#2563eb"/>
+<circle cx="890.0" cy="166.0" r="3.5" fill="#2563eb"/>
+<circle cx="530.0" cy="209.2" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="566.0" cy="204.4" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="602.0" cy="197.2" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="638.0" cy="187.6" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="674.0" cy="178.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="710.0" cy="173.2" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="746.0" cy="168.4" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="782.0" cy="166.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="818.0" cy="166.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<circle cx="854.0" cy="166.0" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/>
+<text x="530" y="328" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal">t = T</text>
+<text x="890" y="328" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal">t = 0</text>
+<text x="710.0" y="350" font-size="12.5" fill="#1f2937" text-anchor="middle" font-weight="normal">예측이 점점 한쪽 정답으로 선명해지고, 후반에 거의 그대로 반영</text>
+<circle cx="330.0" cy="376" r="4" fill="#2563eb"/><text x="340.0" y="380" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">현재 좌표 x_t</text>
+<circle cx="500.0" cy="376" r="4" fill="none" stroke="#ea580c" stroke-width="1.8"/><text x="510.0" y="380" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">모델 예측 x̂₀</text>
+</svg>

@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif">
+<rect width="960" height="440" fill="#ffffff"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2937"/></marker><marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker></defs>
+<text x="480.0" y="30" font-size="17" fill="#1f2937" text-anchor="middle" font-weight="bold">단계별 그래프 구성</text>
+<rect x="70" y="70" width="200" height="260" fill="#f9fafb" stroke="#d1d5db" rx="3"/>
+<line x1="170.0" y1="105.0" x2="223.0" y2="132.8" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="170.0" y1="105.0" x2="245.0" y2="200.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="170.0" y1="105.0" x2="223.0" y2="267.2" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="170.0" y1="105.0" x2="170.0" y2="295.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="170.0" y1="105.0" x2="117.0" y2="267.2" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="170.0" y1="105.0" x2="95.0" y2="200.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="170.0" y1="105.0" x2="117.0" y2="132.8" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="223.0" y1="132.8" x2="245.0" y2="200.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="223.0" y1="132.8" x2="223.0" y2="267.2" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="223.0" y1="132.8" x2="170.0" y2="295.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="223.0" y1="132.8" x2="117.0" y2="267.2" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="223.0" y1="132.8" x2="95.0" y2="200.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="223.0" y1="132.8" x2="117.0" y2="132.8" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="245.0" y1="200.0" x2="223.0" y2="267.2" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="245.0" y1="200.0" x2="170.0" y2="295.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="245.0" y1="200.0" x2="117.0" y2="267.2" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="245.0" y1="200.0" x2="95.0" y2="200.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="245.0" y1="200.0" x2="117.0" y2="132.8" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="223.0" y1="267.2" x2="170.0" y2="295.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="223.0" y1="267.2" x2="117.0" y2="267.2" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="223.0" y1="267.2" x2="95.0" y2="200.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="223.0" y1="267.2" x2="117.0" y2="132.8" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="170.0" y1="295.0" x2="117.0" y2="267.2" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="170.0" y1="295.0" x2="95.0" y2="200.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="170.0" y1="295.0" x2="117.0" y2="132.8" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="117.0" y1="267.2" x2="95.0" y2="200.0" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="117.0" y1="267.2" x2="117.0" y2="132.8" stroke="#6b7280" stroke-opacity="0.45"/>
+<line x1="95.0" y1="200.0" x2="117.0" y2="132.8" stroke="#6b7280" stroke-opacity="0.45"/>
+<circle cx="170.0" cy="105.0" r="11" fill="#374151"/>
+<circle cx="223.0" cy="132.8" r="11" fill="#2563eb"/>
+<circle cx="245.0" cy="200.0" r="11" fill="#9ca3af"/>
+<circle cx="223.0" cy="267.2" r="11" fill="#2563eb"/>
+<circle cx="170.0" cy="295.0" r="11" fill="#9ca3af"/>
+<circle cx="117.0" cy="267.2" r="11" fill="#16a34a"/>
+<circle cx="95.0" cy="200.0" r="11" fill="#ea580c"/>
+<circle cx="117.0" cy="132.8" r="11" fill="#9ca3af"/>
+<text x="170.0" y="354" font-size="13.5" fill="#1f2937" text-anchor="middle" font-weight="bold">첫 단계 (t = T): 완전 그래프</text>
+<text x="170.0" y="373" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">좌표가 무작위 → 관계를 알 수 없음</text>
+<text x="170.0" y="390" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">틀린 관계 대신 '모름'을 표현</text>
+<clipPath id="g380"><rect x="380" y="70" width="200" height="260"/></clipPath>
+<rect x="380" y="70" width="200" height="260" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5" rx="3"/>
+<g clip-path="url(#g380)">
+<rect x="413.8" y="131.4" width="120.1" height="13.2" fill="#374151" fill-opacity="0.55" rx="1.5"/>
+<rect x="384.0" y="123.4" width="84.7" height="20.3" fill="#2563eb" fill-opacity="0.55" rx="1.5"/>
+<rect x="438.7" y="151.5" width="70.3" height="50.9" fill="#9ca3af" fill-opacity="0.55" rx="1.5"/>
+<rect x="372.3" y="218.0" width="72.6" height="21.6" fill="#2563eb" fill-opacity="0.55" rx="1.5"/>
+<rect x="385.8" y="156.4" width="44.5" height="60.7" fill="#9ca3af" fill-opacity="0.55" rx="1.5"/>
+<rect x="482.1" y="137.9" width="72.8" height="42.2" fill="#16a34a" fill-opacity="0.55" rx="1.5"/>
+<rect x="494.1" y="183.2" width="49.1" height="42.9" fill="#ea580c" fill-opacity="0.55" rx="1.5"/>
+<rect x="499.7" y="243.4" width="49.9" height="63.6" fill="#9ca3af" fill-opacity="0.55" rx="1.5"/>
+</g>
+<line x1="473.8" y1="138.0" x2="426.4" y2="133.5" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="473.8" y1="138.0" x2="518.5" y2="159.0" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="426.4" y1="133.5" x2="473.9" y2="177.0" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="473.9" y1="177.0" x2="408.6" y2="228.8" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="408.6" y1="228.8" x2="408.0" y2="186.7" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="518.5" y1="159.0" x2="518.6" y2="204.7" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="518.6" y1="204.7" x2="524.6" y2="275.2" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="473.9" y1="177.0" x2="518.5" y2="159.0" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="473.9" y1="177.0" x2="518.6" y2="204.7" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="408.0" y1="186.7" x2="524.6" y2="275.2" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="408.6" y1="228.8" x2="524.6" y2="275.2" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.75"/>
+<line x1="473.8" y1="138.0" x2="426.4" y2="133.5" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3" stroke-opacity="0.75"/>
+<line x1="473.8" y1="138.0" x2="408.6" y2="228.8" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3" stroke-opacity="0.75"/>
+<line x1="426.4" y1="133.5" x2="473.9" y2="177.0" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3" stroke-opacity="0.75"/>
+<line x1="408.6" y1="228.8" x2="408.0" y2="186.7" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3" stroke-opacity="0.75"/>
+<line x1="518.5" y1="159.0" x2="518.6" y2="204.7" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3" stroke-opacity="0.75"/>
+<circle cx="473.8" cy="138.0" r="5" fill="#374151" stroke="#fff" stroke-width="1.5"/>
+<circle cx="426.4" cy="133.5" r="5" fill="#2563eb" stroke="#fff" stroke-width="1.5"/>
+<circle cx="473.9" cy="177.0" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<circle cx="408.6" cy="228.8" r="5" fill="#2563eb" stroke="#fff" stroke-width="1.5"/>
+<circle cx="408.0" cy="186.7" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<circle cx="518.5" cy="159.0" r="5" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="518.6" cy="204.7" r="5" fill="#ea580c" stroke="#fff" stroke-width="1.5"/>
+<circle cx="524.6" cy="275.2" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="480.0" y="354" font-size="13.5" fill="#1f2937" text-anchor="middle" font-weight="bold">중간 단계: 직전 예측 x̂₀ 기준</text>
+<text x="480.0" y="373" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">대략적 배치에서 가시성·계층 계산</text>
+<text x="480.0" y="390" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">관계가 대체로 맞기 시작</text>
+<clipPath id="g690"><rect x="690" y="70" width="200" height="260"/></clipPath>
+<rect x="690" y="70" width="200" height="260" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5" rx="3"/>
+<g clip-path="url(#g690)">
+<rect x="710.0" y="85.6" width="160.0" height="18.2" fill="#374151" fill-opacity="0.55" rx="1.5"/>
+<rect x="710.0" y="114.2" width="76.0" height="10.4" fill="#2563eb" fill-opacity="0.55" rx="1.5"/>
+<rect x="710.0" y="129.8" width="76.0" height="57.2" fill="#9ca3af" fill-opacity="0.55" rx="1.5"/>
+<rect x="710.0" y="197.4" width="76.0" height="10.4" fill="#2563eb" fill-opacity="0.55" rx="1.5"/>
+<rect x="710.0" y="213.0" width="76.0" height="85.8" fill="#9ca3af" fill-opacity="0.55" rx="1.5"/>
+<rect x="794.0" y="114.2" width="76.0" height="65.0" fill="#16a34a" fill-opacity="0.55" rx="1.5"/>
+<rect x="794.0" y="184.4" width="76.0" height="10.4" fill="#ea580c" fill-opacity="0.55" rx="1.5"/>
+<rect x="794.0" y="202.6" width="76.0" height="96.2" fill="#9ca3af" fill-opacity="0.55" rx="1.5"/>
+</g>
+<line x1="790.0" y1="94.7" x2="748.0" y2="119.4" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="790.0" y1="94.7" x2="832.0" y2="146.7" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="748.0" y1="119.4" x2="748.0" y2="158.4" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="748.0" y1="158.4" x2="748.0" y2="202.6" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="748.0" y1="202.6" x2="748.0" y2="255.9" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="832.0" y1="146.7" x2="832.0" y2="189.6" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="832.0" y1="189.6" x2="832.0" y2="250.7" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="748.0" y1="158.4" x2="832.0" y2="146.7" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="748.0" y1="158.4" x2="832.0" y2="189.6" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="748.0" y1="255.9" x2="832.0" y2="250.7" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="748.0" y1="202.6" x2="832.0" y2="250.7" stroke="#1f2937" stroke-width="1.6" stroke-opacity="0.95"/>
+<line x1="790.0" y1="94.7" x2="748.0" y2="119.4" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3" stroke-opacity="0.95"/>
+<line x1="790.0" y1="94.7" x2="748.0" y2="202.6" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3" stroke-opacity="0.95"/>
+<line x1="748.0" y1="119.4" x2="748.0" y2="158.4" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3" stroke-opacity="0.95"/>
+<line x1="748.0" y1="202.6" x2="748.0" y2="255.9" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3" stroke-opacity="0.95"/>
+<line x1="832.0" y1="146.7" x2="832.0" y2="189.6" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3" stroke-opacity="0.95"/>
+<circle cx="790.0" cy="94.7" r="5" fill="#374151" stroke="#fff" stroke-width="1.5"/>
+<circle cx="748.0" cy="119.4" r="5" fill="#2563eb" stroke="#fff" stroke-width="1.5"/>
+<circle cx="748.0" cy="158.4" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<circle cx="748.0" cy="202.6" r="5" fill="#2563eb" stroke="#fff" stroke-width="1.5"/>
+<circle cx="748.0" cy="255.9" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<circle cx="832.0" cy="146.7" r="5" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
+<circle cx="832.0" cy="189.6" r="5" fill="#ea580c" stroke="#fff" stroke-width="1.5"/>
+<circle cx="832.0" cy="250.7" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
+<text x="790.0" y="354" font-size="13.5" fill="#1f2937" text-anchor="middle" font-weight="bold">후반 (t → 1): 직전 예측 x̂₀ 기준</text>
+<text x="790.0" y="373" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">예측이 선명 → 관계도 정확</text>
+<text x="790.0" y="390" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">미세 조정에 활용</text>
+<line x1="282" y1="200.0" x2="366" y2="200.0" stroke="#1f2937" stroke-width="1.8" marker-end="url(#ar)"/>
+<line x1="592" y1="200.0" x2="676" y2="200.0" stroke="#1f2937" stroke-width="1.8" marker-end="url(#ar)"/>
+<line x1="300" y1="424" x2="330" y2="424" stroke="#1f2937" stroke-width="1.6"/><text x="336" y="428" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">가시성 엣지</text>
+<line x1="440" y1="424" x2="470" y2="424" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5 3"/><text x="476" y="428" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">계층 엣지</text>
+<line x1="570" y1="424" x2="600" y2="424" stroke="#6b7280" stroke-opacity="0.6"/><text x="606" y="428" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">완전 그래프 엣지</text>
+</svg>
