@@ -39,7 +39,7 @@
 <circle cx="117.0" cy="267.2" r="11" fill="#16a34a"/>
 <circle cx="95.0" cy="200.0" r="11" fill="#ea580c"/>
 <circle cx="117.0" cy="132.8" r="11" fill="#9ca3af"/>
-<text x="170.0" y="354" font-size="13.5" fill="#1f2937" text-anchor="middle" font-weight="bold">첫 단계 (t = T): 완전 그래프</text>
+<text x="170.0" y="354" font-size="13.5" fill="#1f2937" text-anchor="middle" font-weight="bold">t = T: 완전 그래프</text>
 <text x="170.0" y="373" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">좌표가 무작위 → 관계를 알 수 없음</text>
 <text x="170.0" y="390" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">틀린 관계 대신 '모름'을 표현</text>
 <clipPath id="g380"><rect x="380" y="70" width="200" height="260"/></clipPath>
@@ -78,8 +78,8 @@
 <circle cx="518.5" cy="159.0" r="5" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
 <circle cx="518.6" cy="204.7" r="5" fill="#ea580c" stroke="#fff" stroke-width="1.5"/>
 <circle cx="524.6" cy="275.2" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
-<text x="480.0" y="354" font-size="13.5" fill="#1f2937" text-anchor="middle" font-weight="bold">중간 단계: 직전 예측 x̂₀ 기준</text>
-<text x="480.0" y="373" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">대략적 배치에서 가시성·계층 계산</text>
+<text x="480.0" y="354" font-size="13.5" fill="#1f2937" text-anchor="middle" font-weight="bold">중간 t: 현재 좌표 x_t 기준</text>
+<text x="480.0" y="373" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">노이즈 섞인 배치로 가시성·계층 계산</text>
 <text x="480.0" y="390" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">관계가 대체로 맞기 시작</text>
 <clipPath id="g690"><rect x="690" y="70" width="200" height="260"/></clipPath>
 <rect x="690" y="70" width="200" height="260" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5" rx="3"/>
@@ -117,8 +117,8 @@
 <circle cx="832.0" cy="146.7" r="5" fill="#16a34a" stroke="#fff" stroke-width="1.5"/>
 <circle cx="832.0" cy="189.6" r="5" fill="#ea580c" stroke="#fff" stroke-width="1.5"/>
 <circle cx="832.0" cy="250.7" r="5" fill="#9ca3af" stroke="#fff" stroke-width="1.5"/>
-<text x="790.0" y="354" font-size="13.5" fill="#1f2937" text-anchor="middle" font-weight="bold">후반 (t → 1): 직전 예측 x̂₀ 기준</text>
-<text x="790.0" y="373" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">예측이 선명 → 관계도 정확</text>
+<text x="790.0" y="354" font-size="13.5" fill="#1f2937" text-anchor="middle" font-weight="bold">후반 (t → 1): 현재 좌표 x_t 기준</text>
+<text x="790.0" y="373" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">노이즈가 줄어 관계도 정확</text>
 <text x="790.0" y="390" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">미세 조정에 활용</text>
 <line x1="282" y1="200.0" x2="366" y2="200.0" stroke="#1f2937" stroke-width="1.8" marker-end="url(#ar)"/>
 <line x1="592" y1="200.0" x2="676" y2="200.0" stroke="#1f2937" stroke-width="1.8" marker-end="url(#ar)"/>
