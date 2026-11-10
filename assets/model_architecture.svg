@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="710" viewBox="0 0 1040 710" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif">
+<rect width="1040" height="710" fill="#ffffff"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2937"/></marker><marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker></defs>
+<text x="365" y="34" font-size="16" fill="#1f2937" text-anchor="middle" font-weight="bold">전체 구조 (encode – process – decode)</text>
+<rect x="230" y="56" width="270" height="70" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="365.0" y="79.0" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">노드 피처 [N, 39]</text>
+<text x="365.0" y="96.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">타입 one-hot · 타입별 개수 · 총 개수</text>
+<text x="365.0" y="113.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">x_t (4) · t 임베딩 (16)</text>
+<line x1="365.0" y1="126" x2="365.0" y2="150" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="230" y="150" width="270" height="62" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="365.0" y="177.5" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">인코더 MLP (2층)</text>
+<text x="365.0" y="194.5" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">Linear 39→d · GELU · Linear d→d</text>
+<line x1="365.0" y1="212" x2="365.0" y2="240" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="230" y="240" width="270" height="120" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="365.0" y="282" font-size="17" fill="#2563eb" text-anchor="middle" font-weight="bold">GNN 층</text>
+<text x="365.0" y="306" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">엣지 조건 어텐션 + FFN</text>
+<text x="365.0" y="324" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">h [N, d] → h [N, d]</text>
+<text x="486" y="346" font-size="16" fill="#2563eb" text-anchor="end" font-weight="bold">× L</text>
+<line x1="365.0" y1="360" x2="365.0" y2="386" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="230" y="386" width="270" height="38" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="365.0" y="410.0" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">LayerNorm</text>
+<line x1="365.0" y1="424" x2="365.0" y2="450" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="230" y="450" width="270" height="62" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="365.0" y="477.5" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">디코더 MLP (2층)</text>
+<text x="365.0" y="494.5" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">Linear d→d · GELU · Linear d→4 (활성화 없음)</text>
+<line x1="365.0" y1="512" x2="365.0" y2="538" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="230" y="538" width="270" height="54" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+<text x="365.0" y="561.5" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">출력 x̂<tspan dy="4" font-size="70%">0</tspan><tspan dy="-4"></tspan> [N, 4]</text>
+<text x="365.0" y="578.5" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">노드별 (x, y, w, h), 모든 노드 동시 예측</text>
+<rect x="20" y="222" width="180" height="66" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="110.0" y="243.0" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">t 임베딩 [16]</text>
+<text x="110.0" y="260.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">t MLP 16→d→d</text>
+<text x="110.0" y="277.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">→ c (층마다 AdaLN)</text>
+<line x1="200" y1="262" x2="230" y2="262" stroke="#ea580c" stroke-width="1.6" marker-end="url(#aro)"/>
+<rect x="20" y="304" width="180" height="82" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="110.0" y="324.5" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">그래프 (x_t 기준)</text>
+<text x="110.0" y="341.5" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">마스크 [N, N]</text>
+<text x="110.0" y="358.5" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">엣지 속성 [N, N, 15+종류]</text>
+<text x="110.0" y="375.5" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">Linear → e (어텐션 편향)</text>
+<line x1="200" y1="342" x2="230" y2="342" stroke="#ea580c" stroke-width="1.6" marker-end="url(#aro)"/>
+<rect x="560" y="50" width="460" height="590" rx="6" fill="#fafafa" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="6,4"/>
+<line x1="500" y1="250" x2="560" y2="60" stroke="#2563eb" stroke-width="1.2" stroke-dasharray="6,4"/>
+<line x1="500" y1="350" x2="560" y2="630" stroke="#2563eb" stroke-width="1.2" stroke-dasharray="6,4"/>
+<text x="790.0" y="78" font-size="15" fill="#2563eb" text-anchor="middle" font-weight="bold">GNN 층 1개 (Pre-LN + 잔차)</text>
+<rect x="660" y="92" width="280" height="32" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="800.0" y="113.0" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">h [N, d]</text>
+<line x1="800.0" y1="124" x2="800.0" y2="150" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="660" y="150" width="280" height="32" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="800.0" y="171.0" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">AdaLN(h, c)</text>
+<line x1="800.0" y1="182" x2="800.0" y2="206" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="660" y="206" width="280" height="112" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="800.0" y="233.0" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">엣지 조건 어텐션 (헤드 4)</text>
+<text x="800.0" y="250.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">Q, K, V = h·W_q, h·W_k, h·W_v</text>
+<text x="800.0" y="267.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">점수 = QKᵀ/√d_h + e</text>
+<text x="800.0" y="284.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">그래프에 없는 쌍 = −∞</text>
+<text x="800.0" y="301.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">α = softmax(점수) [N, N]</text>
+<text x="800.0" y="340" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">α·V → 출력 Linear   [N, N] @ [N, d] → [N, d]</text>
+<line x1="800.0" y1="346" x2="800.0" y2="361" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<circle cx="800.0" cy="373" r="11" fill="#fff" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="794.0" y1="373" x2="806.0" y2="373" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="800.0" y1="367" x2="800.0" y2="379" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="800.0" y1="384" x2="800.0" y2="408" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="660" y="408" width="280" height="32" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="800.0" y="429.0" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">AdaLN(h, c)</text>
+<line x1="800.0" y1="440" x2="800.0" y2="464" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="660" y="464" width="280" height="62" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="800.0" y="491.5" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">FFN (2층)</text>
+<text x="800.0" y="508.5" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">Linear d→4d · GELU · Linear 4d→d</text>
+<line x1="800.0" y1="526" x2="800.0" y2="549" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<circle cx="800.0" cy="561" r="11" fill="#fff" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="794.0" y1="561" x2="806.0" y2="561" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="800.0" y1="555" x2="800.0" y2="567" stroke="#1f2937" stroke-width="1.5"/>
+<line x1="800.0" y1="572" x2="800.0" y2="594" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="660" y="594" width="280" height="32" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="800.0" y="615.0" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">h [N, d]</text>
+<path d="M940,108 H985 V373 H813.0" fill="none" stroke="#1f2937" stroke-width="1.4" marker-end="url(#ar)"/>
+<path d="M800.0,395 H973 V561 H813.0" fill="none" stroke="#1f2937" stroke-width="1.4" marker-end="url(#ar)"/>
+<circle cx="800.0" cy="395" r="3" fill="#1f2937"/>
+<text x="993" y="250" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">잔차</text>
+<text x="981" y="480" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal">잔차</text>
+<text x="612" y="252" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="bold">노드 축</text>
+<text x="612" y="270" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">이웃 정보</text>
+<text x="612" y="286" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">받기</text>
+<text x="612" y="490" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="bold">피처 축</text>
+<text x="612" y="508" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">노드별</text>
+<text x="612" y="524" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal">비선형 가공</text>
+<text x="520.0" y="672" font-size="13" fill="#6b7280" text-anchor="middle" font-weight="normal">노드 표현은 처음부터 끝까지 [N, d] · [N, N]은 어텐션 비율표뿐 · 완전 그래프 + 엣지 속성 없음 = Transformer (비교군)</text>
+<text x="520.0" y="694" font-size="13" fill="#6b7280" text-anchor="middle" font-weight="normal">d ∈ {128, 256} · L ∈ {6, 8, 10} · FFN 4d · 헤드 4 · 드롭아웃 0.1</text>
+</svg>
