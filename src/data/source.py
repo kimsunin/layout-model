@@ -4,15 +4,11 @@ DocLayNet 데이터를 페이지 단위로 로드
 
 from collections.abc import Iterator
 from itertools import islice
-from typing import NamedTuple
 
 from datasets import load_dataset
 
-class Page(NamedTuple):
-    category_ids: list[int]
-    boxes: list[list[float]]
-    doc_category: str
-    page_hash: str
+from src.data.type import Page
+
 
 class DataSource:
     REPO = "docling-project/DocLayNet-v1.1"
