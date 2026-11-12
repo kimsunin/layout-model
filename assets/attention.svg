@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="840" viewBox="0 0 1040 840" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif">
+<rect width="1040" height="840" fill="#ffffff"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2937"/></marker><marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker></defs>
+
+<text x="520" y="34" font-size="16" fill="#1f2937" text-anchor="middle" font-weight="bold">엣지 조건 어텐션 (헤드 4)</text>
+
+<!-- 입력 -->
+<rect x="400" y="54" width="240" height="36" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="520" y="77" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">h [N, d] (AdaLN 출력)</text>
+<line x1="520" y1="90" x2="520" y2="102" stroke="#1f2937" stroke-width="1.6"/>
+<polyline points="290,110 290,102 750,102 750,110" fill="none" stroke="#1f2937" stroke-width="1.6"/>
+<line x1="520" y1="102" x2="520" y2="110" stroke="#1f2937" stroke-width="1.6"/>
+
+<!-- Q K V -->
+<rect x="190" y="112" width="200" height="34" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="290" y="134" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="bold">Q = h·W_q [N, d]</text>
+<rect x="420" y="112" width="200" height="34" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="520" y="134" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="bold">K = h·W_k [N, d]</text>
+<rect x="650" y="112" width="200" height="34" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="750" y="134" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="bold">V = h·W_v [N, d]</text>
+
+<!-- 조각 막대 -->
+<g font-size="12" font-weight="bold" text-anchor="middle">
+<rect x="190" y="156" width="50" height="22" fill="#dbeafe" stroke="#2563eb"/><text x="215" y="171" fill="#2563eb">1</text>
+<rect x="240" y="156" width="50" height="22" fill="#dcfce7" stroke="#16a34a"/><text x="265" y="171" fill="#16a34a">2</text>
+<rect x="290" y="156" width="50" height="22" fill="#ede9fe" stroke="#7c3aed"/><text x="315" y="171" fill="#7c3aed">3</text>
+<rect x="340" y="156" width="50" height="22" fill="#cffafe" stroke="#0891b2"/><text x="365" y="171" fill="#0891b2">4</text>
+<rect x="420" y="156" width="50" height="22" fill="#dbeafe" stroke="#2563eb"/><text x="445" y="171" fill="#2563eb">1</text>
+<rect x="470" y="156" width="50" height="22" fill="#dcfce7" stroke="#16a34a"/><text x="495" y="171" fill="#16a34a">2</text>
+<rect x="520" y="156" width="50" height="22" fill="#ede9fe" stroke="#7c3aed"/><text x="545" y="171" fill="#7c3aed">3</text>
+<rect x="570" y="156" width="50" height="22" fill="#cffafe" stroke="#0891b2"/><text x="595" y="171" fill="#0891b2">4</text>
+<rect x="650" y="156" width="50" height="22" fill="#dbeafe" stroke="#2563eb"/><text x="675" y="171" fill="#2563eb">1</text>
+<rect x="700" y="156" width="50" height="22" fill="#dcfce7" stroke="#16a34a"/><text x="725" y="171" fill="#16a34a">2</text>
+<rect x="750" y="156" width="50" height="22" fill="#ede9fe" stroke="#7c3aed"/><text x="775" y="171" fill="#7c3aed">3</text>
+<rect x="800" y="156" width="50" height="22" fill="#cffafe" stroke="#0891b2"/><text x="825" y="171" fill="#0891b2">4</text>
+</g>
+<text x="520" y="200" font-size="12" fill="#6b7280" text-anchor="middle">노드가 아니라 d를 4조각으로 나눔 (d = 128 → 32 × 4) · 헤드 h는 Q·K·V의 h번 조각만 사용</text>
+
+<!-- 그래프 입력 -->
+<rect x="70" y="216" width="430" height="46" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="285" y="236" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="bold">edge_attr [N, N, 16] → Linear(16 → 4)</text>
+<text x="285" y="253" font-size="12" fill="#6b7280" text-anchor="middle">헤드마다 다른 엣지 편향 e₁ · e₂ · e₃ · e₄ (층마다 따로)</text>
+<rect x="540" y="216" width="430" height="46" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="755" y="236" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="bold">edge_mask [N, N] + 자기 자신(대각선)</text>
+<text x="755" y="253" font-size="12" fill="#6b7280" text-anchor="middle">4개 헤드가 같은 그래프를 공유</text>
+
+<!-- 헤드 4열 -->
+<g font-size="12" text-anchor="middle">
+<!-- 헤드 1 -->
+<text x="170" y="292" font-size="14" fill="#2563eb" font-weight="bold">헤드 1</text>
+<rect x="70" y="302" width="200" height="46" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="170" y="321" fill="#1f2937" font-weight="bold">Q₁K₁ᵀ / √d_h + e₁</text><text x="170" y="339" fill="#6b7280">점수 [N, N]</text>
+<line x1="170" y1="348" x2="170" y2="364" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="70" y="364" width="200" height="34" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="170" y="386" fill="#1f2937" font-weight="bold">없는 쌍 = −∞</text>
+<line x1="170" y1="398" x2="170" y2="414" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="70" y="414" width="200" height="46" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="170" y="433" fill="#1f2937" font-weight="bold">α₁ = softmax</text><text x="170" y="451" fill="#6b7280">[N, N] · 행마다 합 1</text>
+<line x1="170" y1="460" x2="170" y2="476" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="70" y="476" width="200" height="46" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="170" y="495" fill="#1f2937" font-weight="bold">α₁ · V₁</text><text x="170" y="513" fill="#6b7280">[N, d/4] 이웃의 가중 평균</text>
+
+<!-- 헤드 2 -->
+<text x="400" y="292" font-size="14" fill="#16a34a" font-weight="bold">헤드 2</text>
+<rect x="300" y="302" width="200" height="46" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="400" y="321" fill="#1f2937" font-weight="bold">Q₂K₂ᵀ / √d_h + e₂</text><text x="400" y="339" fill="#6b7280">점수 [N, N]</text>
+<line x1="400" y1="348" x2="400" y2="364" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="300" y="364" width="200" height="34" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="400" y="386" fill="#1f2937" font-weight="bold">없는 쌍 = −∞</text>
+<line x1="400" y1="398" x2="400" y2="414" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="300" y="414" width="200" height="46" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="400" y="433" fill="#1f2937" font-weight="bold">α₂ = softmax</text><text x="400" y="451" fill="#6b7280">[N, N] · 행마다 합 1</text>
+<line x1="400" y1="460" x2="400" y2="476" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="300" y="476" width="200" height="46" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="400" y="495" fill="#1f2937" font-weight="bold">α₂ · V₂</text><text x="400" y="513" fill="#6b7280">[N, d/4] 이웃의 가중 평균</text>
+
+<!-- 헤드 3 -->
+<text x="630" y="292" font-size="14" fill="#7c3aed" font-weight="bold">헤드 3</text>
+<rect x="530" y="302" width="200" height="46" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="630" y="321" fill="#1f2937" font-weight="bold">Q₃K₃ᵀ / √d_h + e₃</text><text x="630" y="339" fill="#6b7280">점수 [N, N]</text>
+<line x1="630" y1="348" x2="630" y2="364" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="530" y="364" width="200" height="34" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="630" y="386" fill="#1f2937" font-weight="bold">없는 쌍 = −∞</text>
+<line x1="630" y1="398" x2="630" y2="414" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="530" y="414" width="200" height="46" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="630" y="433" fill="#1f2937" font-weight="bold">α₃ = softmax</text><text x="630" y="451" fill="#6b7280">[N, N] · 행마다 합 1</text>
+<line x1="630" y1="460" x2="630" y2="476" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="530" y="476" width="200" height="46" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="630" y="495" fill="#1f2937" font-weight="bold">α₃ · V₃</text><text x="630" y="513" fill="#6b7280">[N, d/4] 이웃의 가중 평균</text>
+
+<!-- 헤드 4 -->
+<text x="860" y="292" font-size="14" fill="#0891b2" font-weight="bold">헤드 4</text>
+<rect x="760" y="302" width="200" height="46" rx="6" fill="#cffafe" stroke="#0891b2" stroke-width="1.5"/>
+<text x="860" y="321" fill="#1f2937" font-weight="bold">Q₄K₄ᵀ / √d_h + e₄</text><text x="860" y="339" fill="#6b7280">점수 [N, N]</text>
+<line x1="860" y1="348" x2="860" y2="364" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="760" y="364" width="200" height="34" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+<text x="860" y="386" fill="#1f2937" font-weight="bold">없는 쌍 = −∞</text>
+<line x1="860" y1="398" x2="860" y2="414" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="760" y="414" width="200" height="46" rx="6" fill="#cffafe" stroke="#0891b2" stroke-width="1.5"/>
+<text x="860" y="433" fill="#1f2937" font-weight="bold">α₄ = softmax</text><text x="860" y="451" fill="#6b7280">[N, N] · 행마다 합 1</text>
+<line x1="860" y1="460" x2="860" y2="476" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="760" y="476" width="200" height="46" rx="6" fill="#cffafe" stroke="#0891b2" stroke-width="1.5"/>
+<text x="860" y="495" fill="#1f2937" font-weight="bold">α₄ · V₄</text><text x="860" y="513" fill="#6b7280">[N, d/4] 이웃의 가중 평균</text>
+</g>
+
+<!-- 이어 붙이기 -->
+<line x1="170" y1="522" x2="407" y2="566" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="400" y1="522" x2="482" y2="566" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="630" y1="522" x2="557" y2="566" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="860" y1="522" x2="632" y2="566" stroke="#0891b2" stroke-width="1.5" marker-end="url(#ar)"/>
+<g font-size="12" font-weight="bold" text-anchor="middle">
+<rect x="370" y="568" width="75" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="407" y="585" fill="#2563eb">1</text>
+<rect x="445" y="568" width="75" height="26" fill="#dcfce7" stroke="#16a34a"/><text x="482" y="585" fill="#16a34a">2</text>
+<rect x="520" y="568" width="75" height="26" fill="#ede9fe" stroke="#7c3aed"/><text x="557" y="585" fill="#7c3aed">3</text>
+<rect x="595" y="568" width="75" height="26" fill="#cffafe" stroke="#0891b2"/><text x="632" y="585" fill="#0891b2">4</text>
+</g>
+<text x="690" y="586" font-size="12" fill="#6b7280">이어 붙이기 [N, d]</text>
+<line x1="520" y1="594" x2="520" y2="618" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+
+<rect x="400" y="618" width="240" height="40" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="520" y="636" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="bold">출력 Linear W_o (d → d) · Dropout</text>
+<text x="520" y="652" font-size="11" fill="#6b7280" text-anchor="middle">4개 헤드의 결과를 섞음</text>
+<line x1="520" y1="658" x2="520" y2="680" stroke="#1f2937" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="400" y="680" width="240" height="36" rx="6" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="520" y="703" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="bold">[N, d] → × gate₁ → 잔차</text>
+
+<!-- 설명 -->
+<line x1="40" y1="738" x2="1000" y2="738" stroke="#e5e7eb" stroke-width="1"/>
+<text x="520" y="762" font-size="13" fill="#6b7280" text-anchor="middle">그래프는 연결 여부(0/1)만 정하고, 연결된 이웃을 얼마나 볼지(α)는 노드 상태(Q·K)와 엣지 속성(e)으로 매번 계산한다.</text>
+<text x="520" y="786" font-size="13" fill="#6b7280" text-anchor="middle">연결 구조는 4개 헤드가 같고 가중치 α_h만 다르다 → 헤드마다 가중 그래프 행렬이 하나씩 있는 셈 (같은 관계를 4가지 기준으로 평가).</text>
+<text x="520" y="810" font-size="13" fill="#6b7280" text-anchor="middle">같은 행렬을 4조각에 곱하면 나누는 의미가 없다. 헤드별 기준은 학습으로 정해지며 미리 지정하지 않는다.</text>
+</svg>
