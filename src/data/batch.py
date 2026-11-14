@@ -27,6 +27,7 @@ class LayoutBatch(NamedTuple):
     def to(self, device) -> LayoutBatch:
         return LayoutBatch(*(x.to(device) for x in self))
 
+# test
 if __name__ == "__main__":
     from torch.utils.data import DataLoader
 
