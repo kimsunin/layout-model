@@ -1,4 +1,6 @@
 docs/
+outputs/*.pt
+*.pt
 
 # Python
 __pycache__/
