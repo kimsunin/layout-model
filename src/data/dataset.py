@@ -59,6 +59,7 @@ class LayoutDataset(Dataset):
             return False
         return True
 
+# test
 if __name__ == "__main__":
     ds = LayoutDataset(DataSource(), "val", limit=10)
     print(f"가져온 데이터 수:{len(ds)}, 건너뛴 데이터:{ds.num_skipped}")

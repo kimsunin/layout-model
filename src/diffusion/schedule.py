@@ -20,14 +20,21 @@ def rescale_zero_terminal(alpha_bar:torch.Tensor) -> torch.Tensor:
     sab = (sab - last) / (first - last)
     return sab ** 2
 
+# [0, 1] -> [-1, 1]
+def to_diffusion(boxes:torch.Tensor) -> torch.Tensor:
+    return boxes * 2 - 1
+# [-1, 1] -> [0, 1]
+def to_page(x:torch.Tensor) -> torch.Tensor:
+    return (x + 1) / 2
+
 def sample_noise(shape, device=None) -> torch.Tensor:
     return torch.randn(shape, device=device)
 
 class NoiseSchedule:
     def __init__(self, T:int, s:float=0.008):
         self.T = T
-        cosine_alpha_bar = cosine_alpha_bar(T, s)
-        self.alpha_bar = rescale_zero_terminal(cosine_alpha_bar).float()
+        alpha_bar = cosine_alpha_bar(T, s)
+        self.alpha_bar = rescale_zero_terminal(alpha_bar).float()
 
     # ᾱ(t)반환
     def ab(self, t:torch.Tensor) -> torch.Tensor:
@@ -43,7 +50,7 @@ class NoiseSchedule:
         a = self.ab(t).view(-1, *([1] * (x0.dim() - 1)))
         return a.sqrt() * x0 + (1 - a).sqrt() * eps
 
-    # x_t와 x0를 받아 x_t-1을 반환(다음 입력으로 사용)
+    # x_t와 x0를 받아 x_t-1을 반환 -> 다음 입력으로 사용
     def ddim_step(self, x_t:torch.Tensor, x0_hat:torch.Tensor, t:torch.Tensor, t_prev:torch.Tensor) -> torch.Tensor:
         shape = (-1,) + (1,) * (x_t.dim() - 1)
         a_t = self.ab(t).view(shape)
