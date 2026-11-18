@@ -39,6 +39,8 @@ def parse_args() -> argparse.Namespace:
     # 학습
     p.add_argument("--epochs", type=int, default=100)
     p.add_argument("--lr", type=float, default=1e-4)
+    p.add_argument("--c_overlap", type=float, default=0.0, help="겹침 손실 가중치 (0이면 복원만)")
+    p.add_argument("--no_schedule_weight", action="store_true", help="겹침에 ᾱ(t)를 곱하지 않음 (실험 ②)")
     p.add_argument("--weight_decay", type=float, default=0.01)
     p.add_argument("--clip", type=float, default=1.0)
     p.add_argument("--seed", type=int, default=0)
@@ -85,7 +87,7 @@ class Trainer:
         self.schedule = NoiseSchedule(args.T)
         self.builder = GraphBuilder(args.T, mode=args.graph, k=args.k)
         self.model = DenoiserModel(args.d, args.layers, EDGE_DIM, args.heads, dropout=args.dropout).to(device)
-        self.loss_fn = DiffusionLoss()
+        self.loss_fn = DiffusionLoss(c_overlap=args.c_overlap, schedule_weight=not args.no_schedule_weight)
         self.opt = torch.optim.AdamW(self.model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
     # forward -> loss
@@ -96,7 +98,7 @@ class Trainer:
         x_t = self.schedule.q_sample(x0, t) 
         edge_mask, edge_attr = self.builder(types, x_t, t, mask, ab=self.schedule.ab(t))
         x0_hat = self.model(types, x_t, t, mask, edge_mask, edge_attr)
-        loss, log = self.loss_fn(x0_hat, x0, t, mask)  
+        loss, log = self.loss_fn(x0_hat, x0, self.schedule.ab(t), mask)  
         return loss, log, t
     
     def train_epoch(self, loader:DataLoader) -> tuple[float, list[float]]:
