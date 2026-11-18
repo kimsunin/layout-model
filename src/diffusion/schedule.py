@@ -27,8 +27,10 @@ def to_diffusion(boxes:torch.Tensor) -> torch.Tensor:
 def to_page(x:torch.Tensor) -> torch.Tensor:
     return (x + 1) / 2
 
-def sample_noise(shape, device=None) -> torch.Tensor:
-    return torch.randn(shape, device=device)
+def sample_noise(shape, device=None, generator:torch.Generator | None = None) -> torch.Tensor:
+    if generator is None:
+        return torch.randn(shape, device=device)
+    return torch.randn(shape, generator=generator).to(device)
 
 class NoiseSchedule:
     def __init__(self, T:int, s:float=0.008):
