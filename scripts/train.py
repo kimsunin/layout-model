@@ -1,6 +1,35 @@
 """
 학습 구조 : batch -> to_diffusion(좌표를 -1, 1로 변경) -> sample_t(페이지별 t 샘플링) -> q_sample(t를 통해 좌표에 노이즈 추가)
           -> GraphBuilder(노이즈가 추가된 좌표로 그래프 생성) -> model(예측) -> loss(손실계산) -> backward
+
+기본설정
+
+데이터
+limit = None
+max_elements = 50
+batch_size = 32
+
+디퓨전, 그래프
+T = 1000
+graph = both
+k = 0
+w_max = 0.5(t에 따라 overlap의 가중치가 변할때 상한 부여)
+
+모델
+d = 256
+layers = 6
+heads = 4
+dropout = 0.1
+
+학습
+epoch = 100
+lr = 2e-4
+c_overlap = 0.0
+no_schedule_weight = False(True로 설정시 c_overlap적용 x)
+weight_decay = 0.1(노드 출력 제한)
+clip = 1.0
+seed = 0
+out = outputs/exp
 """
 from __future__ import annotations
 
@@ -25,27 +54,29 @@ def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser()
     # 데이터
     p.add_argument("--limit", type=int, default=None, help="split마다 읽을 페이지 수 (None이면 전체)")
-    p.add_argument("--max_elements", type=int, default=None)
-    p.add_argument("--batch_size", type=int, default=64)
+    p.add_argument("--max_elements", type=int, default=50)
+    p.add_argument("--batch_size", type=int, default=32)
     # 디퓨전, 그래프
     p.add_argument("--T", type=int, default=1000)
     p.add_argument("--graph", default="both", choices=["complete", "vis", "hier", "both"])
     p.add_argument("--k", type=int, default=0)
+    p.add_argument("--w_max", type=float, default=0.5, help="겹침 가중치 ᾱ(t)의 상한 (1이면 상한 없음)")
     # 모델
-    p.add_argument("--d", type=int, default=128)
-    p.add_argument("--layers", type=int, default=4)
+    p.add_argument("--d", type=int, default=256)
+    p.add_argument("--layers", type=int, default=6)
     p.add_argument("--heads", type=int, default=4)
     p.add_argument("--dropout", type=float, default=0.1)
     # 학습
     p.add_argument("--epochs", type=int, default=100)
-    p.add_argument("--lr", type=float, default=1e-4)
+    p.add_argument("--lr", type=float, default=2e-4)
     p.add_argument("--c_overlap", type=float, default=0.0, help="겹침 손실 가중치 (0이면 복원만)")
     p.add_argument("--no_schedule_weight", action="store_true", help="겹침에 ᾱ(t)를 곱하지 않음 (실험 ②)")
-    p.add_argument("--weight_decay", type=float, default=0.01)
+    p.add_argument("--weight_decay", type=float, default=0.1)
     p.add_argument("--clip", type=float, default=1.0)
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--device", default=None, help="cuda / mps / cpu (None이면 자동)")
     p.add_argument("--out", default="outputs/exp")
+    p.add_argument("--snr_gamma", type=float, default=0.0, help="Min-SNR 가중치 상한 γ (0이면 사용 안 함, 5 권장)")
     return p.parse_args()
 
 def pick_device(name:str|None) -> torch.device:
@@ -87,7 +118,7 @@ class Trainer:
         self.schedule = NoiseSchedule(args.T)
         self.builder = GraphBuilder(args.T, mode=args.graph, k=args.k)
         self.model = DenoiserModel(args.d, args.layers, EDGE_DIM, args.heads, dropout=args.dropout).to(device)
-        self.loss_fn = DiffusionLoss(c_overlap=args.c_overlap, schedule_weight=not args.no_schedule_weight)
+        self.loss_fn = DiffusionLoss(c_overlap=args.c_overlap, schedule_weight=not args.no_schedule_weight, w_max=args.w_max, snr_gamma=args.snr_gamma)
         self.opt = torch.optim.AdamW(self.model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
     # forward -> loss
